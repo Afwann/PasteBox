@@ -38,8 +38,10 @@ export const searchUsersByName = async (req, res) => {
   }
 
   try {
-    const users = await User.find({ name: new RegExp(`^${name}$`, "i") });
-    // Case-insensitive search
+    const users = await User.find(
+      { name: new RegExp(`^${name}$`, "i") },
+      "name profilePicture"
+    ); // Case-insensitive search
     res.status(200).json({ success: true, data: users });
   } catch (error) {
     res.status(500).json({ success: false, message: "Server error" });

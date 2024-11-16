@@ -4,8 +4,10 @@ import { PORT, MONGO_URI } from "./config.js";
 import userRoutes from "./routes/user.routes.js";
 import snippetRoutes from "./routes/snippet.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 

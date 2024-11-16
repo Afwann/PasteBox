@@ -1,39 +1,53 @@
 import React, { useState } from "react";
 import axios from "axios";
-import styles from "./Snippets.module.css";
+import "./SearchSnippet.css";
 
 const SearchSnippet = () => {
-  const [search, setSearch] = useState("");
+  const [title, setTitle] = useState("");
   const [snippets, setSnippets] = useState([]);
+  const [message, setMessage] = useState("");
 
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get("/api/snippets/search", {
-        params: { search },
-      });
+      const token = localStorage.getItem("token");
+      const response = await axios.get(
+        "http://localhost:5555/api/snippets/search",
+        {
+          params: { title },
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      if (response.data.data.length === 0) {
+        setMessage("No snippets found");
+      } else {
+        setMessage("");
+      }
       setSnippets(response.data.data);
     } catch (error) {
       console.error("Error searching snippets:", error);
+      setMessage("An error occurred while searching for snippets");
     }
   };
 
   return (
-    <div className={styles.searchSnippetContainer}>
+    <div className="search-snippet-container">
       <h1>Search Snippets</h1>
-      <form onSubmit={handleSearch} className={styles.searchForm}>
+      <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
           placeholder="Search by title"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <button type="submit">Search</button>
       </form>
-      <div className={styles.snippetsList}>
+      {message && <p className="message">{message}</p>}
+      <div className="snippets-list">
         {snippets.map((snippet) => (
-          <div key={snippet._id} className={styles.snippet}>
+          <div key={snippet._id} className="snippet">
             <h3>{snippet.title}</h3>
+            <p>{snippet.content}</p>
             <p>User: {snippet.user.username}</p>
           </div>
         ))}

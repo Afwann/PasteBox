@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import Snippet from "../models/snippet.model.js";
-import User from "../models/user.model.js";
 
 export const getAllSnippets = async (req, res) => {
   try {
@@ -39,7 +38,7 @@ export const updateSnippet = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(400)
-      .json({ success: false, message: "Invalid ID format" });
+      .json({ success: false, message: "Invalid ID format1" });
   }
 
   if (!title || !content) {
@@ -77,7 +76,7 @@ export const deleteSnippet = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(400)
-      .json({ success: false, message: "Invalid ID format" });
+      .json({ success: false, message: "Invalid ID format2" });
   }
 
   try {
@@ -143,21 +142,25 @@ export const getSharedSnippetById = async (req, res) => {
   }
 };
 
-export const searchSharedSnippets = async (req, res) => {
-  const { search } = req.query;
+export const searchSnippetsByTitle = async (req, res) => {
+  const { title } = req.query;
+
+  if (!title) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Title query parameter is required" });
+  }
 
   try {
-    let query = { shared: true };
+    // Case-insensitive search for snippets with the matching title
+    const snippets = await Snippet.find(
+      { title: new RegExp(title, "i"), shared: true }, // RegExp for case-insensitive search
+      "title user" // Only select `title` and `user` fields
+    );
 
-    if (search) {
-      const searchRegex = new RegExp(search, "i"); // Case-insensitive search
-      query.title = searchRegex;
-    }
-
-    const snippets = await Snippet.find(query).populate("user", "username");
     res.status(200).json({ success: true, data: snippets });
   } catch (error) {
-    console.error("Error in searching snippets: ", error.message);
+    console.error("Error searching snippets:", error);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
