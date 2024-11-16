@@ -1,0 +1,55 @@
+.search-user-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-form input,
+.search-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+.search-form button {
+  background-color: #00ff00;
+  color: #000;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #005500;
+  color: #00ff00;
+}
+
+.message {
+  color: #ff0000;
+  margin-top: 10px;
+}
+
+.users-list {
+  margin-top: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user img {
+  margin-right: 10px;
+  border-radius: 50%;
+}

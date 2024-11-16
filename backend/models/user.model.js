@@ -12,13 +12,24 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+    },
+    bio: {
+      type: String,
+      default: "Hallo Pak Eko",
+    },
+    profilePicture: {
+      type: String,
+      default: "/uploads/Template_pic.png", // Default profile picture
+    },
   },
   {
     timestamps: true,
   }
 );
 
-// Hash the password before saving the user
+// Middleware untuk hashing password sebelum menyimpan
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     return next();
@@ -32,7 +43,15 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-// Method to compare password
+// Middleware untuk mengisi default 'name' dengan '_id'
+userSchema.pre("save", function (next) {
+  if (!this.name) {
+    this.name = this._id.toString(); // Gunakan _id sebagai name
+  }
+  next();
+});
+
+// Method untuk membandingkan password
 userSchema.methods.comparePassword = function (candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };

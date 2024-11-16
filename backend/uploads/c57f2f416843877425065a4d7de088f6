@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "09bb6f15-cf72-4efa-9475-5b82eb83a448",
+		"name": "PasteBox API Collection",
+		"description": "Collection for testing PasteBox API endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25745971"
+	},
+	"item": [
+		{
+			"name": "Snippet",
+			"item": [
+				{
+					"name": "Get All Snippets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/snippets",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Snippet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Harusnya False Share\",\n  \"content\": \"Iya False\"\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/snippets",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Snippet",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Harusnya False Share\",\n  \"content\": \"Iya False, Bisa keupdate Cuyh share-nya True. Rill kah ?\",\n  \"shared\": true\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/snippets/672a81cd61081e3cd683a0cd",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets",
+								"672a81cd61081e3cd683a0cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Snippet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/snippets/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Snippet by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/snippets/{{SnippetID}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets",
+								"{{SnippetID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shared Snippet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/snippets/shared/{{SnippetID}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets",
+								"shared",
+								"{{SnippetID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Kesandung Meja Buka VSCODE Kesandung Kasur\",\n  \"password\": \"Langsung Tidur Wan\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\n//   \"username\": \"Kesandung Meja Buka VSCODE Kesandung Kasur\",\n//   \"password\": \"Langsung Tidur Wan\"\n// }\n\n{\n  \"username\": \"Aji Waras Jam 3 Pagii\",\n  \"password\": \"Hampir Tidur Mimpi Jadi Menteri Komdigi\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Database Related",
+			"item": [
+				{
+					"name": "Ping Database",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/db",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Backend",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deprecated",
+			"item": [
+				{
+					"name": "Share Snippet",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/snippets/{{SnippetID}}/share",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"snippets",
+								"{{SnippetID}}",
+								"share"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:{{PORT}}"
+		},
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "PORT",
+			"value": "3000"
+		}
+	]
+}

@@ -1,0 +1,180 @@
+.snippetsContainer {
+  font-family: 'Consolas', monospace;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.headerLink {
+  font-family: 'Consolas', monospace;
+  color: #00ff00;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.headerLink:hover {
+  color: #005500;
+}
+
+.notification {
+  color: #00ff00;
+  margin-bottom: 10px;
+}
+
+.snippetForm {
+  margin-bottom: 20px;
+}
+
+.snippetForm input,
+.snippetForm textarea,
+.snippetForm button {
+  font-family: 'Consolas', monospace;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+.snippetForm button {
+  background-color: #00ff00;
+  color: #000;
+  cursor: pointer;
+}
+
+.snippetForm button:hover {
+  background-color: #005500;
+  color: #00ff00;
+}
+
+.sharedButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.sharedButton {
+  font-family: 'Consolas', monospace;
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.sharedButton.active {
+  background-color: #00ff00;
+  color: #000;
+  border-color: #005500;
+}
+
+.sharedButton:hover {
+  background-color: #005500;
+  color: #00ff00;
+}
+
+.searchSnippetContainer {
+  font-family: 'Consolas', monospace;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+}
+
+.searchForm {
+  margin-bottom: 20px;
+}
+
+.searchForm input,
+.searchForm button {
+  font-family: 'Consolas', monospace;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+.searchForm button {
+  background-color: #00ff00;
+  color: #000;
+  cursor: pointer;
+}
+
+.searchForm button:hover {
+  background-color: #005500;
+  color: #00ff00;
+}
+
+.snippetsList {
+  margin-top: 20px;
+}
+
+.snippet {
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #000;
+}
+
+.snippetId {
+  font-size: 0.9rem;
+  color: #00ff00;
+}
+
+.sharedStatus {
+  font-style: italic;
+  color: #00ff00;
+}
+
+.snippetButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.updateButton,
+.deleteButton {
+  padding: 10px;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.updateButton:hover,
+.deleteButton:hover {
+  background-color: #005500;
+  color: #00ff00;
+}
