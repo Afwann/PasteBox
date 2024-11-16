@@ -28,19 +28,20 @@ export const login = async (req, res) => {
   }
 };
 
-export const searchUsers = async (req, res) => {
+export const searchUsersByName = async (req, res) => {
   const { name } = req.query;
+
+  if (!name) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Name query parameter is required" });
+  }
+
   try {
-    const users = await User.find({ name: new RegExp(name, "i") }).select(
-      "name profilePicture"
-    );
-    if (users.length === 0) {
-      return res
-        .status(404)
-        .json({ success: false, message: "No users found" });
-    }
+    const users = await User.find({ name: new RegExp(`^${name}$`, "i") });
+    // Case-insensitive search
     res.status(200).json({ success: true, data: users });
-  } catch (err) {
-    res.status(500).send(err);
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };

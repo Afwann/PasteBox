@@ -2,7 +2,7 @@ import express from "express";
 import {
   register,
   login,
-  searchUsers,
+  searchUsersByName,
 } from "../controllers/user.controller.js";
 import auth from "../middleware/auth.js";
 
@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.post("/register", register);
 router.post("/login", login);
-router.get("/search", searchUsers); // Ensure this route uses the auth middleware
+router.get("/search", auth, searchUsersByName);
 
 export default router;

@@ -10,8 +10,10 @@ const SearchUser = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
+      const token = localStorage.getItem("token");
       const response = await axios.get("/api/users/search", {
         params: { name },
+        headers: { Authorization: `Bearer ${token}` },
       });
       if (response.data.data.length === 0) {
         setMessage("No users found");
@@ -20,12 +22,8 @@ const SearchUser = () => {
       }
       setUsers(response.data.data);
     } catch (error) {
-      if (error.response && error.response.status === 404) {
-        setMessage("No users found");
-      } else {
-        console.error("Error searching users:", error);
-        setMessage("An error occurred while searching for users");
-      }
+      console.error("Error searching users:", error);
+      setMessage("An error occurred while searching for users");
     }
   };
 
