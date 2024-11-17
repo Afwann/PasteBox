@@ -152,11 +152,14 @@ export const searchSnippetsByTitle = async (req, res) => {
   }
 
   try {
-    // Case-insensitive search for snippets with the matching title
+    // Create a RegExp with word boundary
+    const regex = new RegExp(`\\b${title}\\b`, "i"); // \b ensures exact word match
+
+    // Search for snippets
     const snippets = await Snippet.find(
-      { title: new RegExp(title, "i"), shared: true }, // RegExp for case-insensitive search
+      { title: regex, shared: true }, // Match title with exact word
       "title user" // Only select `title` and `user` fields
-    );
+    ).populate("user", "username");
 
     res.status(200).json({ success: true, data: snippets });
   } catch (error) {

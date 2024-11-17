@@ -1,0 +1,109 @@
+.container {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #001f3f, #000);
+  text-align: center;
+  padding: 20px;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+.snippetsContainer {
+  font-family: 'Consolas', monospace;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #00ff7f;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 15px #00ff7f;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  color:#00ff7f;
+}
+.headerLinks {
+  display: flex;
+  gap: 10px;
+}
+
+.headerLink {
+  color: #00ff7f;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.headerLink:hover {
+  color: #005500;
+}
+
+.notification {
+  color: #00ff00;
+  margin-bottom: 10px;
+}
+
+.snippetForm {
+  margin-bottom: 20px;
+}
+
+.snippetForm input,
+.snippetForm textarea,
+.snippetForm button {
+  font-family: 'Consolas', monospace;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+.snippetForm button {
+  background-color: #00ff00;
+  color: #000;
+  cursor: pointer;
+}
+
+.snippetForm button:hover {
+  background-color: #005500;
+  color: #00ff00;
+}
+
+.sharedButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.sharedButton {
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.sharedButton.active {
+  background-color: #00ff00;
+  color: #000;
+  border-color: #005500;
+}
+
+.sharedButton:hover {
+  background-color: #005500;
+  color: #00ff00;
+}

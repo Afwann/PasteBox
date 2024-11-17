@@ -38,12 +38,18 @@ export const searchUsersByName = async (req, res) => {
   }
 
   try {
+    // Create a RegExp that matches the name as part of a word or phrase
+    const regex = new RegExp(name, "i"); // Case-insensitive match
+
+    // Search for users where the name contains the search term
     const users = await User.find(
-      { name: new RegExp(`^${name}$`, "i") },
-      "name profilePicture"
-    ); // Case-insensitive search
+      { name: regex }, // Match any part of the name
+      "name profilePicture" // Select only name and profilePicture fields
+    );
+
     res.status(200).json({ success: true, data: users });
   } catch (error) {
+    console.error("Error searching users by name:", error);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };

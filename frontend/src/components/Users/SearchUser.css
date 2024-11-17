@@ -53,3 +53,18 @@
   margin-right: 10px;
   border-radius: 50%;
 }
+
+.user button {
+  margin-left: auto;
+  padding: 5px 10px;
+  border: 1px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+  cursor: pointer;
+}
+
+.user button:hover {
+  background-color: #005500;
+  color: #00ff00;
+}

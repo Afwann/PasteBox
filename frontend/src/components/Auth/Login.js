@@ -25,26 +25,32 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.authForm}>
-      <h2>Login</h2>
-      {error && <p className={styles.errorMessage}>{error}</p>}
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
-      <p className={styles.redirectMessage}>
-        Don't have an account? <Link to="/register">Register here</Link>
-      </p>
-    </form>
+    <div className={styles.authContainer}>
+      <form onSubmit={handleSubmit} className={styles.authForm}>
+        <h2 className={styles.authTitle}>Login</h2>
+        {error && <p className={styles.errorMessage}>{error}</p>}
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className={styles.authInput}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className={styles.authInput}
+        />
+        <button type="submit" className={styles.authButton}>
+          Login
+        </button>
+        <p className={styles.redirectMessage}>
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

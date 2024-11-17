@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./SearchUser.css";
 
 const SearchUser = () => {
   const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -25,6 +27,10 @@ const SearchUser = () => {
       console.error("Error searching users:", error);
       setMessage("An error occurred while searching for users");
     }
+  };
+
+  const handleReadMore = (userId) => {
+    navigate(`/user/${userId}`);
   };
 
   return (
@@ -47,6 +53,7 @@ const SearchUser = () => {
               <img src={user.profilePicture} alt="Profile" width="50" />
             )}
             <p>{user.name}</p>
+            <button onClick={() => handleReadMore(user._id)}>Read More</button>
           </div>
         ))}
       </div>

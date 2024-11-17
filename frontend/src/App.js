@@ -9,6 +9,7 @@ import MySnippets from "./components/Snippets/MySnippets";
 import UpdateSnippet from "./components/Snippets/UpdateSnippet";
 import SearchUser from "./components/Users/SearchUser";
 import SearchSnippet from "./components/Snippets/SearchSnippet";
+import UserDetail from "./components/Users/UserDetail";
 import "./styles.css";
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <Route path="/update-snippet/:id" element={<UpdateSnippet />} />
       <Route path="/search-user" element={<SearchUser />} />
       <Route path="/search-snippet" element={<SearchSnippet />} />
+      <Route path="/user/:id" element={<UserDetail />} />
     </Routes>
   </Router>
 );

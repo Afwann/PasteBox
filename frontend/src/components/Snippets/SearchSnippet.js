@@ -11,13 +11,10 @@ const SearchSnippet = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        "http://localhost:5555/api/snippets/search",
-        {
-          params: { title },
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await axios.get("/api/snippets/search/title", {
+        params: { title },
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (response.data.data.length === 0) {
         setMessage("No snippets found");
       } else {
