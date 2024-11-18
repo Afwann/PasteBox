@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./SearchSnippet.css";
+import styles from "./SearchSnippet.css";
 
 const SearchSnippet = () => {
   const [title, setTitle] = useState("");
@@ -49,7 +49,10 @@ const SearchSnippet = () => {
       <div className="snippets-list">
         {snippets.map((snippet) => (
           <div key={snippet._id} className="snippet">
-            <h3>{snippet.title}</h3>
+            <div className={styles.snippetAuthorContainer}>
+              <h3>{snippet.title}</h3>
+              <h4>Author: {snippet.user}</h4>
+            </div>
             <button onClick={() => handleReadMore(snippet._id)}>
               Read More
             </button>

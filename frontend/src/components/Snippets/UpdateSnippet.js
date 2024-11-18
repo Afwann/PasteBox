@@ -83,7 +83,9 @@ const UpdateSnippet = () => {
             Not Shared
           </button>
         </div>
-        <button type="submit">Update</button>
+        <button className={styles.updateSnippetBtn} type="submit">
+          Update
+        </button>
       </form>
     </div>
   );

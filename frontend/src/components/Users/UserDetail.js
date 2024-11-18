@@ -26,18 +26,19 @@ const UserDetailPage = () => {
 
   return (
     <div className="user-detail-container">
-      <h2>User Details</h2>
+      <h1>User Details</h1>
       <img
         src={user.profilePicture}
         alt="Profile"
         className="profile-picture"
       />
-      <p>
-        <strong>Name:</strong> {user.name}
-      </p>
-      <p>
-        <strong>Bio:</strong> {user.bio}
-      </p>
+      <h2 id="username">
+        <strong>{user.name}</strong>
+      </h2>
+      <h3 id={"bio"}>About Me</h3>
+      <div className={"bioContainer"}>
+        <p>{user.bio}</p>
+      </div>
     </div>
   );
 };

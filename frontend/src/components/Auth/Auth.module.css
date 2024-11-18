@@ -1,5 +1,5 @@
-.authContainer {
-  display: flex;
+.container {
+    display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -11,10 +11,12 @@
   box-sizing: border-box;
 }
 
-.authForm {
+.authContainer {
+  align-items: center;
   font-family: 'Consolas', monospace;
   max-width: 400px;
   width: 100%;
+  margin: 20px auto;
   padding: 20px;
   border: 1px solid #00ff7f;
   border-radius: 8px;
@@ -30,7 +32,7 @@
   text-shadow: 0px 0px 10px #00ff7f;
 }
 
-input, textarea, button {
+.authInput {
   font-family: 'Consolas', monospace;
   width: 100%;
   padding: 10px;
@@ -42,18 +44,34 @@ input, textarea, button {
   box-sizing: border-box;
 }
 
-button {
-  background-color: #00ff7f;
-  color: #001f3f;
+input {
+  font-family: 'Consolas', monospace;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: #001f3f;
+  color: #00ff7f;
+  box-sizing: border-box;
+}
+
+.authButton {
+  background-color: transparent;
+  color: #fff;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s ease;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
 }
 
-button:hover {
-  background-color: #003f1f;
-  color: #00ff7f;
+.authButton:hover {
+  background-color: #00ff7f;
+  color: #000;
 }
 
 .errorMessage {

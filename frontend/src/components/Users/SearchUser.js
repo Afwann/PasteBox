@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./SearchUser.css";
+import styles from "./SearchUser.css";
 
 const SearchUser = () => {
   const [name, setName] = useState("");
@@ -53,7 +53,12 @@ const SearchUser = () => {
               <img src={user.profilePicture} alt="Profile" width="50" />
             )}
             <p>{user.name}</p>
-            <button onClick={() => handleReadMore(user._id)}>Read More</button>
+            <button
+              className={styles.readMoreBtn}
+              onClick={() => handleReadMore(user._id)}
+            >
+              Read More
+            </button>
           </div>
         ))}
       </div>

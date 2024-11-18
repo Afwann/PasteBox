@@ -3,8 +3,8 @@
   margin: 20px auto;
   padding: 20px;
   background-color: #000;
-  color: #00ff00;
-  border: 1px solid #00ff00;
+  color: #00ff7f;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
 }
 
@@ -12,26 +12,13 @@
   margin-bottom: 20px;
 }
 
-.search-form input,
-.search-form button {
+.search-form input {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #00ff00;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
   background-color: #000;
-  color: #00ff00;
-}
-
-.search-form button {
-  background-color: #00ff00;
-  color: #000;
-  cursor: pointer;
-}
-
-.search-form button:hover {
-  background-color: #005500;
-  color: #00ff00;
 }
 
 .message {
@@ -46,25 +33,30 @@
 .user {
   display: flex;
   align-items: center;
+  flex-direction: row;
   margin-bottom: 10px;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  padding: 5px 5px 5px 0;
 }
 
 .user img {
-  margin-right: 10px;
+  margin: 0 10px 0 10px;
   border-radius: 50%;
 }
 
 .user button {
+  font-family: 'Consolas', monospace;
   margin-left: auto;
   padding: 5px 10px;
-  border: 1px solid #00ff00;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
   background-color: #000;
-  color: #00ff00;
+  color: #fff;
   cursor: pointer;
 }
 
 .user button:hover {
-  background-color: #005500;
-  color: #00ff00;
+  background-color: #00ff7f;
+  color: #000;
 }

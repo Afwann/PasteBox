@@ -25,24 +25,28 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.authContainer}>
-      <form onSubmit={handleSubmit} className={styles.authForm}>
-        <h2 className={styles.authTitle}>Register</h2>
-        {error && <p className={styles.errorMessage}>{error}</p>}
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Register</button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.authContainer}>
+        <form onSubmit={handleSubmit} className={styles.authForm}>
+          <h2 className={styles.authTitle}>Register</h2>
+          {error && <p className={styles.errorMessage}>{error}</p>}
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className={styles.authButton} type="submit">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

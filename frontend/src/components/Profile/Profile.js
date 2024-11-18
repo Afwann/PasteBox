@@ -83,7 +83,9 @@ const Profile = () => {
             accept="image/*"
             onChange={(e) => setProfilePicture(e.target.files[0])}
           />
-          <button type="submit">Upload Profile Picture</button>
+          <button className={styles.uploadBtn} type="submit">
+            Upload Profile Picture
+          </button>
         </form>
         <form onSubmit={handleProfileUpdate}>
           <input
@@ -91,13 +93,16 @@ const Profile = () => {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className={styles.profileInput}
           />
           <textarea
             placeholder="Bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
           />
-          <button type="submit">Update Profile</button>
+          <button className={styles.updateBtn} type="submit">
+            Update Profile
+          </button>
         </form>
         {notification && <p className={styles.notification}>{notification}</p>}
       </div>

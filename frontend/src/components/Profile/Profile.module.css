@@ -4,7 +4,7 @@
   padding: 20px;
   background-color: #000;
   color: #00ff00;
-  border: 1px solid #00ff00;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
 }
 
@@ -28,28 +28,57 @@ form {
   align-items: center;
 }
 
-input[type="text"],
 textarea,
-input[type="file"],
-button {
+input[type="file"] {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #00ff00;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
-  background-color: #000;
-  color: #00ff00;
+  background-color: #001f3f;
+  color: #00ff7f;
 }
 
-button {
-  background-color: #00ff00;
+.uploadBtn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.uploadBtn:hover {
+  background-color: #00ff7f;
   color: #000;
-  cursor: pointer;
 }
 
-button:hover {
-  background-color: #005500;
-  color: #00ff00;
+.updateBtn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.updateBtn:hover {
+  background-color: #00ff7f;
+  color: #000;
+}
+
+
+
+.profileInput {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: #001f3f;
+  color: #00ff7f;
 }
 
 .notification {

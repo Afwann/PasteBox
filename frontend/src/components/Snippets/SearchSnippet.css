@@ -1,10 +1,10 @@
-.search-user-container {
+.search-snippet-container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   background-color: #000;
-  color: #00ff00;
-  border: 1px solid #00ff00;
+  color: #00ff7f;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
 }
 
@@ -12,44 +12,68 @@
   margin-bottom: 20px;
 }
 
-.search-form input,
+.search-form input {
+  font-family: 'Consolas', monospace;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: #001f3f;
+  color: #00ff7f;
+}
+
 .search-form button {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #00ff00;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
-  background-color: #000;
-  color: #00ff00;
-}
-
-.search-form button {
-  background-color: #00ff00;
-  color: #000;
+  background-color: transparent;
+  color: #fff;
   cursor: pointer;
 }
 
 .search-form button:hover {
-  background-color: #005500;
-  color: #00ff00;
+  background-color: #00ff7f;
+  color: #000;
+}
+
+.snippet {
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.snippet h3,h4 {
+  margin-left: 10px;
+}
+
+.snippetAuthorContainer {
+  display: flex;
+  align-items: center;
+}
+
+.snippet button {
+  font-family: 'Consolas', monospace;
+  margin: 0 10px 0 auto;
+  padding: 5px 10px;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.snippet button:hover {
+  background-color: #00ff7f;
+  color: #000;
 }
 
 .message {
   color: #ff0000;
   margin-top: 10px;
-}
-
-.users-list {
-  margin-top: 20px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.user img {
-  margin-right: 10px;
-  border-radius: 50%;
 }

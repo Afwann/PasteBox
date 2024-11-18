@@ -102,7 +102,9 @@ const CreateSnippet = () => {
               Not Shared
             </button>
           </div>
-          <button type="submit">Create</button>
+          <button type="submit" className={styles.createButton}>
+            Create
+          </button>
         </form>
       </div>
     </div>

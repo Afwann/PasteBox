@@ -30,7 +30,7 @@ const SnippetDetailPage = () => {
       <h3>{snippet.title}</h3>
       <p>{snippet.content}</p>
       <p>
-        <strong>User:</strong> {snippet.user}
+        <strong>Author:</strong> {snippet.user}
       </p>
     </div>
   );

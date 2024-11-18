@@ -29,20 +29,28 @@
 }
 .header h1 {
   color:#00ff7f;
+  margin: 0 30px 0 0;
 }
 .headerLinks {
   display: flex;
+  flex-direction: row;
   gap: 10px;
 }
 
 .headerLink {
-  color: #00ff7f;
+  color: #fff;
   cursor: pointer;
-  text-decoration: underline;
+  background: rgba(0, 255, 127, 0.1);
+  border: 2px solid #00ff7f;
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
 }
 
 .headerLink:hover {
-  color: #005500;
+  background-color: #00ff7f;
+  color: #000;
+  transform: scale(1.05);
 }
 
 .notification {
@@ -55,27 +63,38 @@
 }
 
 .snippetForm input,
-.snippetForm textarea,
-.snippetForm button {
+.snippetForm textarea {
   font-family: 'Consolas', monospace;
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #00ff00;
+  border: 1px solid #00ff7f;
   border-radius: 5px;
-  background-color: #000;
-  color: #00ff00;
+  background-color: #001f3f;
+  color: #00ff7f;
 }
 
 .snippetForm button {
-  background-color: #00ff00;
-  color: #000;
+  background-color: rgba(0, 255, 127, 0.1);;
+  color: #fff;
+  border: 1px solid #00ff7f;
+}
+
+.createButton {
+  font-family: 'Consolas', monospace;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff7f;
   cursor: pointer;
 }
 
-.snippetForm button:hover {
-  background-color: #005500;
-  color: #00ff00;
+.createButton:hover {
+  background-color: #00ff7f;
+  color: #000;
 }
 
 .sharedButtons {
@@ -88,22 +107,20 @@
 .sharedButton {
   width: 48%;
   padding: 10px;
-  border: 1px solid #00ff00;
   border-radius: 5px;
   background-color: #000;
-  color: #00ff00;
+  color: #fff;
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .sharedButton.active {
-  background-color: #00ff00;
+  background-color: #00ff7f;
   color: #000;
-  border-color: #005500;
 }
 
 .sharedButton:hover {
-  background-color: #005500;
-  color: #00ff00;
+  background-color: #00ff7f;
+  color: #000;
 }
