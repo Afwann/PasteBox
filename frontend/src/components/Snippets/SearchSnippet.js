@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./SearchSnippet.css";
 
 const SearchSnippet = () => {
   const [title, setTitle] = useState("");
   const [snippets, setSnippets] = useState([]);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -27,6 +29,10 @@ const SearchSnippet = () => {
     }
   };
 
+  const handleReadMore = (snippetId) => {
+    navigate(`/snippet/${snippetId}`);
+  };
+
   return (
     <div className="search-snippet-container">
       <h1>Search Snippets</h1>
@@ -44,8 +50,9 @@ const SearchSnippet = () => {
         {snippets.map((snippet) => (
           <div key={snippet._id} className="snippet">
             <h3>{snippet.title}</h3>
-            <p>{snippet.content}</p>
-            <p>User: {snippet.user.username}</p>
+            <button onClick={() => handleReadMore(snippet._id)}>
+              Read More
+            </button>
           </div>
         ))}
       </div>

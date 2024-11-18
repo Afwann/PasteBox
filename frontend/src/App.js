@@ -10,6 +10,7 @@ import UpdateSnippet from "./components/Snippets/UpdateSnippet";
 import SearchUser from "./components/Users/SearchUser";
 import SearchSnippet from "./components/Snippets/SearchSnippet";
 import UserDetail from "./components/Users/UserDetail";
+import SnippetDetail from "./components/Snippets/SnippetDetail";
 import "./styles.css";
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
       <Route path="/search-user" element={<SearchUser />} />
       <Route path="/search-snippet" element={<SearchSnippet />} />
       <Route path="/user/:id" element={<UserDetail />} />
+      <Route path="/snippet/:id" element={<SnippetDetail />} />
     </Routes>
   </Router>
 );
