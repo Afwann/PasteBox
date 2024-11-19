@@ -51,7 +51,7 @@ const SearchSnippet = () => {
           <div key={snippet._id} className="snippet">
             <div className={styles.snippetAuthorContainer}>
               <h3>{snippet.title}</h3>
-              <h4>Author: {snippet.user}</h4>
+              <h4>Author: {snippet.user.username}</h4>
             </div>
             <button onClick={() => handleReadMore(snippet._id)}>
               Read More

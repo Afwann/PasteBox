@@ -159,7 +159,7 @@ export const searchSnippetsByTitle = async (req, res) => {
     const snippets = await Snippet.find(
       { title: regex, shared: true }, // Match title with exact word
       "title user" // Only select `title` and `user` fields
-    );
+    ).populate("user", "username");
 
     res.status(200).json({ success: true, data: snippets });
   } catch (error) {
