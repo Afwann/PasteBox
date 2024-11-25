@@ -32,13 +32,13 @@ pipeline {
 
         stage('Remove Containers') {
             steps {
-                sh "docker compose down frontend backend mongodb mongo_ui|| true" // Gunakan || true agar tidak gagal jika tidak ada container berjalan
+                sh "docker-compose down frontend backend mongodb mongo_ui|| true" // Gunakan || true agar tidak gagal jika tidak ada container berjalan
             }
         }
 
         stage('Build and Start Containers') {
             steps {
-                sh "docker compose up --build -d"
+                sh "docker-compose up --build -d"
             }
         }
 
