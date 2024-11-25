@@ -1,6 +1,7 @@
 version: '3'
 services:
   backend:
+    container_name: backend
     build: ./backend
     ports:
       - "5555:5555"
@@ -14,6 +15,7 @@ services:
       - app-network
 
   frontend:
+    container_name: frontend
     build: ./frontend
     ports:
       - "3000:3000"
