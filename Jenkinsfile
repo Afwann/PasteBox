@@ -47,7 +47,7 @@ pipeline {
         //         script {
         //             sleep(time: 15, unit: 'SECONDS')
         //         }
-                // sh "docker exec forum_app-laravel.test-1 php artisan migrate:fresh --seed"
+                // sh "docker exec forum_app-laravel.test-1 php artisan migrate:frxesh --seed"
         //     }
         // }
 

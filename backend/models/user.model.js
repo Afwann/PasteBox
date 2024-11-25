@@ -7,19 +7,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      validate: {
-        validator: function (v) {
-          // Validasi pola username sesuai aturan
-          const validPattern = /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/;
-          return validPattern.test(v);
-        },
-        message: (props) => `${props.value} is not a valid username!`,
-      },
-    },
-    strippedUsername: {
-      type: String,
-      unique: true, // Pastikan versi tanpa titik tetap unik
-      required: true,
     },
     password: {
       type: String,
@@ -61,10 +48,6 @@ userSchema.pre("save", function (next) {
   if (!this.name) {
     this.name = this._id.toString(); // Gunakan _id sebagai name
   }
-
-  // Set strippedUsername sebagai versi tanpa titik
-  this.strippedUsername = this.username.replace(/\./g, ""); // Hilangkan semua titik
-
   next();
 });
 
