@@ -41,3 +41,7 @@ app.get("/db", (_, res) => {
     return res.status(500).send("Failed to ping database");
   }
 });
+
+app.use((req, res, next) => {
+  res.status(404).json({ success: false, message: "API endpoint not found" });
+});

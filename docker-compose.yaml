@@ -1,0 +1,55 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5555:5555"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://root:password@mongodb:27017/pastebox?authSource=admin
+      - JWT_SECRET=your_jwt_secret
+      - PORT=5555
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: pastebox
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./database:/data/db
+    networks:
+      - app-network
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    container_name: mongo_ui
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_SERVER: mongodb
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -11,6 +11,8 @@ import SearchUser from "./components/Users/SearchUser";
 import SearchSnippet from "./components/Snippets/SearchSnippet";
 import UserDetail from "./components/Users/UserDetail";
 import SnippetDetail from "./components/Snippets/SnippetDetail";
+import NotFound from "./components/NotFound";
+import ErrorBoundary from "./components/ErrorBoundary";
 import "./styles.css";
 
 const App = () => (
@@ -27,6 +29,7 @@ const App = () => (
       <Route path="/search-snippet" element={<SearchSnippet />} />
       <Route path="/user/:id" element={<UserDetail />} />
       <Route path="/snippet/:id" element={<SnippetDetail />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
 );
