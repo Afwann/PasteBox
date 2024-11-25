@@ -42,19 +42,19 @@ pipeline {
             }
         }
 
-        stage('Run Migration') {
-            steps {
-                script {
-                    sleep(time: 15, unit: 'SECONDS')
-                }
+        // stage('Run Migration') {
+        //     steps {
+        //         script {
+        //             sleep(time: 15, unit: 'SECONDS')
+        //         }
                 // sh "docker exec forum_app-laravel.test-1 php artisan migrate:fresh --seed"
-            }
-        }
+        //     }
+        // }
 
-        stage('Set Permissions') {
-            steps {
-                // sh "docker exec forum_app-laravel.test-1 chmod -R 777 /var/www/html/storage"
-            }
-        }
+        // stage('Set Permissions') {
+        //     steps {
+                 // sh "docker exec forum_app-laravel.test-1 chmod -R 777 /var/www/html/storage"
+        //     }
+        // }
     }
 }
