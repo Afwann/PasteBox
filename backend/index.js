@@ -26,7 +26,7 @@ const connectWithRetry = () => {
     })
     .catch((err) => {
       console.error("Failed to connect to MongoDB", err);
-      setTimeout(connectWithRetry, 5000);
+      setTimeout(connectWithRetry, 5000); // Retry every 5 seconds
     });
 };
 
