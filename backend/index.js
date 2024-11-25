@@ -14,17 +14,23 @@ app.use(express.json());
 // Serve the uploads directory statically
 app.use("/uploads", express.static("uploads"));
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log("Connected to MongoDB");
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+const connectWithRetry = () => {
+  console.log("MongoDB connection with retry");
+  mongoose
+    .connect(MONGO_URI)
+    .then(() => {
+      console.log("Connected to MongoDB");
+      app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error("Failed to connect to MongoDB", err);
+      setTimeout(connectWithRetry, 5000); // Retry after 5 seconds
     });
-  })
-  .catch((err) => {
-    console.error("Failed to connect to MongoDB", err);
-  });
+};
+
+connectWithRetry();
 
 app.use("/api/users", userRoutes);
 app.use("/api/snippets", snippetRoutes);
