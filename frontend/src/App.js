@@ -12,7 +12,6 @@ import SearchSnippet from "./components/Snippets/SearchSnippet";
 import UserDetail from "./components/Users/UserDetail";
 import SnippetDetail from "./components/Snippets/SnippetDetail";
 import NotFound from "./components/NotFound";
-import ErrorBoundary from "./components/ErrorBoundary";
 import "./styles.css";
 
 const App = () => (
