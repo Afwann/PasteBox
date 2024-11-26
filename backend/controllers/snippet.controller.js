@@ -129,7 +129,10 @@ export const getSharedSnippetById = async (req, res) => {
   }
 
   try {
-    const snippet = await Snippet.findOne({ _id: id, shared: true });
+    const snippet = await Snippet.findOne(
+      { _id: id, shared: true },
+      "title user content"
+    ).populate("user", "username");
     if (!snippet) {
       return res
         .status(404)

@@ -1,7 +1,7 @@
 version: '3'
 services:
   backend:
-    container_name: backend
+    container_name: pastebox_backend
     build: ./backend
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
@@ -13,7 +13,7 @@ services:
       - app-network
 
   frontend:
-    container_name: frontend
+    container_name: pastebox_frontend
     build: ./frontend
     ports:
       - "${FRONTEND_PORT}:${FRONTEND_PORT}"
