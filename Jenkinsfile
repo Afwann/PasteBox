@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    // environment {
-    //     scannerHome = tool 'jenkins-tool' // Pastikan ini sesuai nama tool di Jenkins
-    // }
+    environment {
+        scannerHome = tool 'Pastebox'
+    }
 
     stages {
         stage('SCM Checkout') {
@@ -12,23 +12,23 @@ pipeline {
             }
         }
 
-        // stage('SonarQube Analysis') {
-        //     steps {
-        //         withSonarQubeEnv('SonarQube Server') { // Pastikan ini sesuai nama konfigurasi di Jenkins
-        //             sh "${scannerHome}/bin/sonar-scanner"
-        //         }
-        //     }
-        // }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube Server') { // Pastikan ini sesuai nama konfigurasi di Jenkins
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
 
-        // stage("Quality Gate") {
-        //     steps {
-        //         timeout(time: 30, unit: 'MINUTES') {
-        //             // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-        //             // true = set pipeline to UNSTABLE, false = don't
-        //             waitForQualityGate abortPipeline: true
-        //         }
-        //     }
-        // }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 30, unit: 'MINUTES') {
+                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                    // true = set pipeline to UNSTABLE, false = don't
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
 
         stage('Remove Containers') {
             steps {
