@@ -14,7 +14,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube Server') { // Pastikan ini sesuai nama konfigurasi di Jenkins
+                withSonarQubeEnv('Pastebox') { // Pastikan ini sesuai nama konfigurasi di Jenkins
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
