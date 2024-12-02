@@ -43,10 +43,9 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-// Middleware untuk mengisi default 'name' dengan '_id'
 userSchema.pre("save", function (next) {
   if (!this.name) {
-    this.name = this._id.toString(); // Gunakan _id sebagai name
+    this.name = this._id.toString();
   }
   next();
 });
