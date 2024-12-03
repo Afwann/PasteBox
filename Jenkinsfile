@@ -41,20 +41,22 @@ pipeline {
                 sh "docker-compose up --build -d"
             }
         }
-
-        // stage('Run Migration') {
-        //     steps {
-        //         script {
-        //             sleep(time: 15, unit: 'SECONDS')
-        //         }
-                // sh "docker exec forum_app-laravel.test-1 php artisan migrate:frxesh --seed"
-        //     }
-        // }
-
-        // stage('Set Permissions') {
-        //     steps {
-                 // sh "docker exec forum_app-laravel.test-1 chmod -R 777 /var/www/html/storage"
-        //     }
-        // }
+        stage('ZAP') {
+            agent {
+                docker {
+                    image 'ghcr.io/zaproxy/zaproxy:stable'
+                    args '-u root --network host -v /var/run/docker.sock:/var/run/docker.sock --entrypoint= -v .:/zap/wrk/:rw'
+                }
+            }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'zap-baseline.py -t http://localhost:3000 -r zapbaseline.html -x zapbaseline.xml'
+                }
+                sh 'cp /zap/wrk/zapbaseline.html ./zapbaseline.html'
+                sh 'cp /zap/wrk/zapbaseline.xml ./zapbaseline.xml'
+                archiveArtifacts artifacts: 'zapbaseline.html'
+                archiveArtifacts artifacts: 'zapbaseline.xml'
+            }
+        }
     }
 }
