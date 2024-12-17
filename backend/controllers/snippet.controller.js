@@ -38,7 +38,7 @@ export const updateSnippet = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(400)
-      .json({ success: false, message: "Invalid ID format" });
+      .json({ success: false, message: "Invalid ID format1" });
   }
 
   if (!title || !content) {
@@ -48,8 +48,8 @@ export const updateSnippet = async (req, res) => {
   }
 
   try {
-    const updatedSnippet = await Snippet.findByIdAndUpdate(
-      id,
+    const updatedSnippet = await Snippet.findOneAndUpdate(
+      { _id: id, user: req.user._id },
       { title, content, shared },
       {
         new: true,
@@ -76,18 +76,19 @@ export const deleteSnippet = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(400)
-      .json({ success: false, message: "Invalid ID format" });
+      .json({ success: false, message: "Invalid ID format2" });
   }
 
   try {
-    const deletedSnippet = await Snippet.findByIdAndDelete(id);
-
+    const deletedSnippet = await Snippet.findOneAndDelete({
+      _id: id,
+      user: req.user._id,
+    });
     if (!deletedSnippet) {
       return res
         .status(404)
         .json({ success: false, message: "Snippet not found" });
     }
-
     res.status(200).json({ success: true, message: "Snippet deleted" });
   } catch (error) {
     console.error("Error in deleting snippet: ", error.message);

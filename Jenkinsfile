@@ -14,7 +14,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('Pastebox') { // Pastikan ini sesuai nama konfigurasi di Jenkins
+                withSonarQubeEnv('Pastebox') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Remove Containers') {
             steps {
-                sh "docker-compose down frontend backend || true" // Gunakan || true agar tidak gagal jika tidak ada container berjalan
+                sh "docker-compose down frontend backend || true"
             }
         }
 
