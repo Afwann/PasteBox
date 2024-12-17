@@ -12,6 +12,18 @@ import multer from "multer";
 const router = express.Router();
 const upload = multer({
   dest: "uploads/",
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (!allowedTypes.includes(file.mimetype)) {
+      const error = new Error("Invalid file type");
+      error.code = "INVALID_FILE_TYPE";
+      return cb(error, false);
+    }
+    cb(null, true);
+  },
+  limits: {
+    fileSize: 1024 * 1024,
+  },
 });
 
 router.put("/update", auth, upsertProfile); // Create or Update Profile
